@@ -89,19 +89,19 @@ const ReportPage3 = () => {
         }
 
         .attention-icon {
-          background-image: url('src/assets/ReportPage3-img1.png');
+          background-image: url('https://i.ibb.co/mC3k0t2Y/Report-Page3-img1.png');
         }
 
         .communication-icon {
-          background-image: url('src/assets/ReportPage3-img2.png');
+          background-image: url('https://i.ibb.co/fdnPkWBM/Report-Page3-img2.png');
         }
 
         .sensory-icon {
-          background-image: url('src/assets/ReportPage3-img3.png');
+          background-image: url('https://i.ibb.co/GQzFyhw2/Report-Page3-img3.png');
         }
 
         .speech-icon {
-          background-image: url('src/assets/ReportPage3-img4.png');
+          background-image: url('https://i.ibb.co/dJJ1RF64/Report-Page3-img4.png');
         }
 
         .small-title-box {
