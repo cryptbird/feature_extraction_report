@@ -27,6 +27,7 @@ function Circle({ x, y, radius, imageUrl, onClickHandler }) {
           objectFit: "contain", // Ensure the image fits nicely
           cursor: "pointer", // Indicate it's clickable
           animation: "blink 0.5s infinite", // Apply the blinking animation
+          
         }}
       />
     </>

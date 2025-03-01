@@ -1,38 +1,31 @@
 import React, { useContext, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import { AppContext } from "../../AppContext";
 
 const ReportPage3 = () => {
-  const { testData, fetchTestData } = useContext(AppContext);
-  const location = useLocation();
+  const { testData,  } = useContext(AppContext);
   
+
   // Function to parse query parameters
-  const getQueryParams = (search) => {
-    const params = new URLSearchParams(search);
-    return {
-      patient_uid: params.get("PATIENT_UID"),
-      transaction_id: params.get("TRANSACTION_ID"),
-      dob: params.get("patientDOB"),
-      name: params.get("name"),
-    };
-  };
+  // const getQueryParams = (search) => {
+  //   const params = new URLSearchParams(search);
+  //   let data = {};
+  //   params.forEach((value, key) => {
+  //     data[key] = value;
+  //   });
+  //   return data;
+  // };
 
-  const { patient_uid, transaction_id, dob, name } = getQueryParams(location.search);
-  
-  useEffect(() => {
-    console.log("Extracted Parameters:");
-    console.log("PATIENT ID =", patient_uid);
-    console.log("TRANSACTION ID =", transaction_id);
-    console.log("DOB =", dob);
-    console.log("name =", name);
-
-    if (patient_uid && transaction_id) {
-      fetchTestData(patient_uid, transaction_id);
-    }
-  }, [patient_uid, transaction_id, dob]); // Ensure it runs when params change
+  // useEffect(() => {
+    // const queryParams = getQueryParams(location.search);
+    // console.log("Extracted Parameters:", queryParams);
+    
+    // setTestData(queryParams); // Store the query parameters in testData
+  // }, [location.search, setTestData]);
 
   console.log(testData);
-  console.log(testData["Focal Point IOU"]);
+
+  console.log("hiiii= ",testData.focal_IOU);
   return (
     <div className="report-page">
       <style>{`
@@ -87,21 +80,24 @@ const ReportPage3 = () => {
           margin-bottom: 10px;
           opacity: 1;
         }
+        
+
+
 
         .attention-icon {
-          background-image: url('https://i.ibb.co/mC3k0t2Y/Report-Page3-img1.png');
+          background-image: url("https://i.ibb.co/QycJmhp/Report-Page3-img1.png");
         }
 
         .communication-icon {
-          background-image: url('https://i.ibb.co/fdnPkWBM/Report-Page3-img2.png');
+          background-image: url("https://i.ibb.co/r2SvbXGR/Report-Page3-img2.png");
         }
 
         .sensory-icon {
-          background-image: url('https://i.ibb.co/GQzFyhw2/Report-Page3-img3.png');
+          background-image: url("https://i.ibb.co/8Dbqt2yp/Report-Page3-img3.png");
         }
 
         .speech-icon {
-          background-image: url('https://i.ibb.co/dJJ1RF64/Report-Page3-img4.png');
+          background-image: url("https://i.ibb.co/tPpbnp2z/Report-Page3-img4.png");
         }
 
         .small-title-box {
@@ -239,23 +235,23 @@ const ReportPage3 = () => {
       </div> */}
         <div className="section-right">
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Focal Point IOu </span>
-        <ProgressBar label="" value={testData["Focal Point IOU"]+"%"} />
+        <ProgressBar label="" value={testData.focal_IOU+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Joint Attention Error (%) </span>
-        <ProgressBar label="" value={testData["Joint Attention Error (%)"]+"%"} />
+        <ProgressBar label="" value={testData.joint_attention_error+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Eye Contact Error </span>
-        <ProgressBar label="" value={testData["Eye Contact Error"]+"%"} />
+        <ProgressBar label="" value={testData.eye_contact_error+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Gaze Dispersion (pixels) </span>
-        <ProgressBar label="" value={testData["Gaze Dispersion (pixels)"]+"%"} />
+        <ProgressBar label="" value={testData.gaze_dispersion+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Gaze Speed (px/sec) </span>
-        <ProgressBar label="" value={testData["Gaze Speed (px/sec)"]+"%"} />
+        <ProgressBar label="" value={testData.gaze_speed+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Screen Focus (%) </span>
-        <ProgressBar label="" value={testData["Screen Focus (%)"]+"%"} />
+        <ProgressBar label="" value={testData.screen_focus+"%"} />
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Gaze Holds </span>
-      <ProgressBar label="" value={testData["Gaze Holds"]+"%"} />
+      <ProgressBar label="" value={testData.gaze_holds+"%"} />
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Saccades (per second) </span>
-      <ProgressBar label="" value={testData["Saccades (per second)"]+"%"} />
+      <ProgressBar label="" value={testData.saccades+"%"} />
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Object Tracking Error (px) </span>
-      <ProgressBar label="" value={testData["Object Tracking Error (px)"]+"%"} />
+      <ProgressBar label="" value={testData.object_tracking_error+"%"} />
         </div>
       </div>
 
@@ -284,12 +280,12 @@ const ReportPage3 = () => {
       <div className="section-right">
       
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Social Preference (%) </span>
-      <ProgressBar label="" value={testData["Social Preference (%)"]+"%"} customClass="fill-communication"/>
+      <ProgressBar label="" value={testData.social_preference+"%"} customClass="fill-communication"/>
       
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> LipSync Recognisability (%) </span>
-      <ProgressBar label="" value={testData["LipSync Recognisability (%)"]+"%"} customClass="fill-communication"/>
+      <ProgressBar label="" value={testData.lipsync_recog+"%"} customClass="fill-communication"/>
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> Convo Recognisability (%) </span>
-      <ProgressBar label="" value={testData["Convo Recognisability (%)"]+"%"} customClass="fill-communication"/>
+      <ProgressBar label="" value={testData.convo_recog+"%"} customClass="fill-communication"/>
         </div>
       </div>
 
@@ -301,11 +297,11 @@ const ReportPage3 = () => {
 
         <div className="section-right">
         <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> meanYaw (deg/sec) </span>
-        <ProgressBar label="" value={testData["meanYaw (deg/sec)"]+"%"} customClass="fill-communication"/>
+        <ProgressBar label="" value={testData.yaw+"%"} customClass="fill-communication"/>
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> meanPitch (deg/sec) </span>
-      <ProgressBar label="" value={testData["meanPitch (deg/sec)"]+"%"} customClass="fill-communication"/>
+      <ProgressBar label="" value={testData.pitch+"%"} customClass="fill-communication"/>
       <span style={{ marginBottom: "-20px", fontWeight: "700", fontSize: "20px", fontFamily: "sans-serif" }}> meanRoll (deg/sec) </span>
-      <ProgressBar label="" value={testData["meanRoll (deg/sec)"]+"%"} customClass="fill-communication"/>
+      <ProgressBar label="" value={testData.roll+"%"} customClass="fill-communication"/>
         </div>
       </div>
 

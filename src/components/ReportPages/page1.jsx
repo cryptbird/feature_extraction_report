@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import backgroundImage from '../../assets/page1bg.png'; // Importing the background image
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
+import { AppContext } from "../../AppContext";
 
 function ReportPage() {
-    const location = useLocation();
-    const getQueryParams = (search) => {
-      const params = new URLSearchParams(search);
-      return {
-        dob: params.get("patientDOB"),
-        name: params.get("name"),
-      };
-    };
+    // const location = useLocation();
+    // const getQueryParams = (search) => {
+    //   const params = new URLSearchParams(search);
+    //   return {
+    //     dob: params.get("patientDOB"),
+    //     name: params.get("name"),
+    //   };
+    // };
   
-    const {dob, name } = getQueryParams(location.search);
-    
-    
+    // const {dob, name } = getQueryParams(location.search);
+      const { testData,  } = useContext(AppContext);
+      let name = testData.name;
+
   
   return (
     <div style={styles.container}>
@@ -27,7 +29,7 @@ function ReportPage() {
       <div style={styles.overlayBox}>
         <h1 style={styles.title}>Ai.gnosis Cognitive & Developmental Report</h1>
         <p style={styles.infoText}>Name: {name}</p>
-        <p style={styles.infoText}>Date of Birth: {dob}</p>
+        {/* <p style={styles.infoText}>Date of Birth: {dob}</p> */}
         {/* <p style={styles.infoText}>Age at Assessment: 3 years old</p> */}
       </div>
     </div>
