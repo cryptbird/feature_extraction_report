@@ -287,14 +287,16 @@ const   Page1 = () => {
                             </div>
 
                             {/* Progress Bar Row */}
-                            <div className="w-full h-[4vh] bg-[#BD35E54D] rounded-full mb-2">
+                            <div className="w-full h-[4vh] bg-[#e5e7eb] rounded-full mb-2">
                             <div
-                                className="h-full bg-[#BD35E5] rounded-full flex justify-between items-center p-1 "
-                                style={{ width: `${item.value < 20 ? item.value + 5 : item.value}%` }}
+className={`h-full rounded-full flex justify-between items-center p-1 ${
+    item.value >= 60 ? 'bg-green-500' : item.value >= 40 ? 'bg-yellow-500' : 'bg-red-500'
+  }`}
+                                  style={{ width: `${item.value < 20 ? item.value + 5 : item.value}%` }}
                             >
                                 <div></div>
                                 <div className="w-7 h-7 bg-white rounded-full flex justify-center items-center" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                <h5 className="text-[10px] text-[#BD35E5] font-raleway mb-3">
+                                <h5 className="text-[10px] text-[#BD35E5] font-raleway mb-1">
                                     {item.value}%
                                 </h5>
                                 </div>
@@ -305,35 +307,7 @@ const   Page1 = () => {
 
                     </div>
                 </div>
-
-                <div className="w-full justify-center font-playfair mt-8 font-semibold gap-5 px-5 items-center flex ">
-                    <div className="w-[45%] justify-center font-playfair mt-2 font-semibold items-center flex">
-                        <div className="w-[10vw] flex flex-col justify-center items-center">
-                            {/* <img src={img3} alt="Movement and Posture" /> */}
-                            <div className="w-[12vw] p-4 h-[6vw] bg-[#fff] flex flex-col items-center justify-center rounded-3xl">
-                                {/* <h4 className='text-center text-white'> Movement and Posture</h4> */}
-                                {/* <h4 className=' text-white'>78%</h4> */}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex w-[50%] flex-col">
-                        {progressData2.map((item, index) => (
-                            <div key={index} className="w-full h-[4vh] bg-[#fff] rounded-full mb-2">
-                                <div
-                                    className="h-full bg-[#fff] rounded-full flex justify-between items-center p-1"
-                                    style={{ width: `${item.value < 20 ? item.value + 5 : item.value}%` }}
-                                >
-                                    <div>
-                                        <h4 className="text-xs text-white ml-3 ">{item.label}</h4>
-                                    </div>
-                                    <div className="w-6 h-6 bg-gray-100 rounded-full flex justify-center items-center " >
-                                        <h5 className="text-[10px] text-[#fff] font-raleway mb-3">{item.value}%</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+<br /><br />
 
                 <div className="w-full flex justify-between items-center text-xs font-manrope mt-0 border-t-2 border-[#800080] pt-0">
                     <span className='text-[10px]'>{name}</span>
