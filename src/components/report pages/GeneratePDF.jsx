@@ -180,6 +180,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => (
 
 
 const GeneratePDF = () => {
+  document.body.style.zoom = "75%";
   const getURLParameter = (name) => {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
@@ -194,7 +195,8 @@ const GeneratePDF = () => {
     fetchTestData(patient_uid, transaction_id);
   }, []);
   
-    const name=testData.name;
+    const name= (getURLParameter("name") || "N/A");
+
     const componentRef = useRef();  
     const [loading, setLoading] = useState(false); // Loader state
 
