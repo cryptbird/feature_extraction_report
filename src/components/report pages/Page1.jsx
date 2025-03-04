@@ -203,10 +203,10 @@ import { AppContext } from "../../AppContext";
 // }
 
 const   Page1 = () => {
-      const getURLParameter = (name) => {
-              const urlParams = new URLSearchParams(window.location.search);
-              return urlParams.get(name);
-            };
+    // const getURLParameter = (name) => {
+    //           const urlParams = new URLSearchParams(window.location.search);
+    //           return urlParams.get(name);
+    //         };
           const { testData } = useContext(AppContext);
     //   console.log(testData);
     //   console.log(testData.patienDOB);
@@ -215,7 +215,7 @@ const   Page1 = () => {
           const params = new URLSearchParams(search);
           return {
             dob: params.get("patientDOB"),
-            name: params.get("Name"),
+            name: params.get("name"),
           };
         };
       
