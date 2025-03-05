@@ -258,7 +258,7 @@ const   Page1 = () => {
                     <div className="w-[25%]">
                         <img src={img1} alt="Patient Image" />
                     </div>
-                    <div className="font-playfair text-xs text-left ml-5">
+                    <div className="font-manrope text-xs text-left ml-5">
                         <h3>Patient Details:</h3>
                         <h3>Name: {name}</h3>
                         {/* <h3>Age: {agep}</h3> */}
@@ -267,10 +267,10 @@ const   Page1 = () => {
                     </div>
                 </div>
 
-                <h3 className='text-center font-playfair mt-4 font-semibold text-lg'>Developmental Skills Summary</h3>
+                <h3 className='text-center font-manrope mt-4 font-semibold text-lg'>Developmental Skills Summary</h3>
 
-                <div className="w-full justify-center font-playfair mt-8 font-semibold gap-5 px-5 items-center flex">
-                    <div className="w-[45%] justify-center font-playfair mt-2 font-semibold items-center flex">
+                <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
+                    <div className="w-[45%] justify-center font-manrope mt-2 font-semibold items-center flex">
                         <div className="w-[10vw] flex flex-col justify-center items-center">
                             <img src={img2} alt="Visual Interest" />
                             <div className="w-[12vw] p-4 h-[12vw] bg-[#BD35E5] flex flex-col items-center justify-center rounded-3xl text-white">

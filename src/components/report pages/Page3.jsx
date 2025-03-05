@@ -10,8 +10,8 @@ const Page3 = () => {
         return urlParams.get(name);
       };
     const { testData } = useContext(AppContext);
-    const name=getURLParameter("Name") || "";
-    const {timestamp}=getURLParameter("{timestamp}") || "";
+    const name=getURLParameter("name") || "";
+    const {timestamp}=getURLParameter("timestamp") || "";
 
     const tableData = [
         {
@@ -88,7 +88,7 @@ const Page3 = () => {
     
 
     return (
-        <div className="pdf-image flex flex-col font-raleway items-center p-8 bg-white min-h-screen">
+        <div className="pdf-image flex flex-col font-manrope items-center p-8 bg-white min-h-screen">
             <div className="pdf-page bg-white p-8 shadow-md rounded-md flex justify-center items-center w-[210mm] h-[297mm] relative">
                 {/* Header */}
                 <div className="absolute p-8 top-0 left-0 w-full">
@@ -97,7 +97,7 @@ const Page3 = () => {
                 </div>
 
                 {/* Table */}
-                <div className="w-full border rounded-3xl p-4 border-[#CDAAE0] font-raleway">
+                <div className="w-full border rounded-3xl p-4 border-[#CDAAE0] font-manrope">
                     <h3 className='text-center text-sm font-bold mb-5'></h3>
                     <table className="w-full border-collapse">
                         {/* Table Header */}
@@ -135,9 +135,10 @@ const Page3 = () => {
                         </tbody>
                     </table>
                 </div>
-
+                            
                 {/* Footer */}
                 <div className="absolute p-8 bottom-0 left-0 w-full">
+                    <br />
                     <div className="w-full flex justify-between items-center text-xs font-manrope mt-10 border-t-2 border-[#800080] pt-2">
                         <span className="text-[10px]">{name}</span>
                         <div className="text-center text-[10px]">
