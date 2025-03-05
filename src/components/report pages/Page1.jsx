@@ -296,7 +296,7 @@ className={`h-full rounded-full flex justify-between items-center p-1 ${
                             >
                                 <div></div>
                                 <div className="w-7 h-7 bg-white rounded-full flex justify-center items-center" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                <h5 className="text-[10px] text-[#BD35E5] font-raleway mb-1">
+                                <h5 className="text-[10px] text-[#000] font-raleway mb-1">
                                     {item.value}%
                                 </h5>
                                 </div>
