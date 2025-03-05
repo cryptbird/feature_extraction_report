@@ -11,6 +11,8 @@ const Page3 = () => {
       };
     const { testData } = useContext(AppContext);
     const name=getURLParameter("Name") || "";
+    const {timestamp}=getURLParameter("{timestamp}") || "";
+
     const tableData = [
         {
             subskill: "Social Preference",
@@ -139,7 +141,7 @@ const Page3 = () => {
                     <div className="w-full flex justify-between items-center text-xs font-manrope mt-10 border-t-2 border-[#800080] pt-2">
                         <span className="text-[10px]">{name}</span>
                         <div className="text-center text-[10px]">
-                            <span>Received Date: 2023-07-28 17:22:09</span>
+                            <span>Received Date: {timestamp}</span>
                             <br />
                             <span>ID: Report Generation Date:</span>
                         </div>

@@ -216,10 +216,11 @@ const   Page1 = () => {
           return {
             dob: params.get("patientDOB"),
             name: params.get("name"),
+            timestamp:params.get("timestamp")
           };
         };
       
-        const {dob, name } = getQueryParams(location.search);
+        const {dob, name, timestamp } = getQueryParams(location.search);
         const birthDate = new Date(dob);
         const today = new Date();
         // console.log(dob);
@@ -312,7 +313,7 @@ className={`h-full rounded-full flex justify-between items-center p-1 ${
                 <div className="w-full flex justify-between items-center text-xs font-manrope mt-0 border-t-2 border-[#800080] pt-0">
                     <span className='text-[10px]'>{name}</span>
                     <div className="text-center text-[10px]">
-                        <span>Received Date: 2023-07-28 17:22:09</span>
+                        <span>Received Date: {timestamp}</span>
                         <br />
                         <span>ID: Report Generation Date:</span>
                     </div>
