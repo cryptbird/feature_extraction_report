@@ -26,73 +26,73 @@ const pdfData = [
       alttext:'report first page',
   },
   {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738767504591_page2.png',
-      alttext:'report second page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768231265_page3.png',
-      alttext:'report third page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768279180_page4.png',
-      alttext:'report four page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768308524_page5.png',
-      alttext:'report fifth page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768377852_page6.png',
-      alttext:'report six page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768391375_page7.png',
-      alttext:'report seven page',
-  },
+    url:'https://i.ibb.co/ch8CB38Q/Aignosis-Sample-Report-page-0002.jpg',
+    alttext:'report second page',
+},
+{
+    url:'https://i.ibb.co/7tzZXn7h/Aignosis-Sample-Report-page-0003.jpg',
+    alttext:'report third page',
+},
+{
+    url:'https://i.ibb.co/35CXNPgw/Aignosis-Sample-Report-page-0004.jpg',
+    alttext:'report four page',
+},
+{
+    url:'https://i.ibb.co/Pv6hF2zL/Aignosis-Sample-Report-page-0005.jpg',
+    alttext:'report fifth page',
+},
+{
+    url:'https://i.ibb.co/5hPKgM91/Aignosis-Sample-Report-page-0006.jpg',
+    alttext:'report six page',
+},
+{
+    url:'https://i.ibb.co/1YP9HxPW/Aignosis-Sample-Report-page-0007.jpg',
+    alttext:'report seven page',
+},
 ]
 
 
 const SecondpdfData = [
-  // {
-  //     url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768677082_page8.png',
-  //     alttext:'report eight page',
-  // },
-  // {
-  //     url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768918579_page9.png',
-  //     alttext:'report nine page',
-  // },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768941181_page10.png',
-      alttext:'report ten page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768955924_page11.png',
-      alttext:'report eleven page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769196127_page12.png',
-      alttext:'report tweleve page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769245551_page13.png',
-      alttext:'report thireteen page',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769259360_page14.png',
-      alttext:'report  page 14',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769273519_page15.png',
-      alttext:'report page 15',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769286119_page16.png',
-      alttext:'report page 16',
-  },
-  {
-      url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738769299141_page17.png',
-      alttext:'report page 17',
-  },
+// {
+//     url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768677082_page8.png',
+//     alttext:'report eight page',
+// },
+// {
+//     url:'https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738768918579_page9.png',
+//     alttext:'report nine page',
+// },
+{
+    url:'https://i.ibb.co/HDcb3xdY/Aignosis-Sample-Report-page-0015.jpg',
+    alttext:'report ten page',
+},
+{
+    url:'https://i.ibb.co/cSKPtpmb/Aignosis-Sample-Report-page-0016.jpg',
+    alttext:'report eleven page',
+},
+{
+    url:'https://i.ibb.co/gNQDftQ/Aignosis-Sample-Report-page-0017.jpg',
+    alttext:'report tweleve page',
+},
+{
+    url:'https://i.ibb.co/zV7jBZmX/Aignosis-Sample-Report-page-0018.jpg',
+    alttext:'report thireteen page',
+},
+{
+    url:'https://i.ibb.co/rKDmbkBt/Aignosis-Sample-Report-page-0019.jpg',
+    alttext:'report  page 14',
+},
+{
+    url:'https://i.ibb.co/8nkPd4T9/Aignosis-Sample-Report-page-0020.jpg',
+    alttext:'report page 15',
+},
+{
+    url:'https://i.ibb.co/kssPTvqD/Aignosis-Sample-Report-page-0021.jpg',
+    alttext:'report page 16',
+},
+{
+    url:'https://i.ibb.co/dJkxnjFV/Aignosis-Sample-Report-page-0022.jpg',
+    alttext:'report page 17',
+},
 ]
 
 // const ComponentToPrint = React.forwardRef((props, ref) => (
