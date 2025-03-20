@@ -71,9 +71,7 @@ const MCHAT3 = () => {
     <div className="w-full flex justify-between items-center text-xs font-manrope mt-20 border-t-2 border-[#800080] pt-2">
                     <span className='text-[10px]'>MCHAT Report - {testData.patienthistoryform1data?.NameOfChild}</span>
                     <div className="text-center text-[10px]">
-                        <span></span>
-                        <br />
-                        <span>ID: Report Generation Date: {currentDate}</span>
+                        
                     </div>
                     <span className='text-[10px]'>Page 14</span>
         </div>

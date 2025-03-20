@@ -250,7 +250,7 @@ const [responses, setResponses] = useState({});
             <div className="w-full flex justify-between items-center text-xs font-manrope mt-6 border-t-2 border-[#800080] pt-2">
               <span className='text-[10px]'>CARS Report - {name}</span>
               <div className="text-center text-[10px]">
-                <span>ID: Report Generation Date: {currentDate}</span>
+                {/* <span>ID: Report Generation Date: {currentDate}</span> */}
               </div>
               <span className='text-[10px]'>Page 16</span>
             </div>

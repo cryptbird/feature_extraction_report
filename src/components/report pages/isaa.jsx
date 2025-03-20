@@ -407,9 +407,9 @@ const ISAA = () => {
                 ISAA Report - {patientData.name}
               </span>
               <div className="text-center text-[10px]">
-                <span></span>
+                {/* <span></span>
                 <br />
-                <span>ID: Report Generation Date: {currentDate}</span>
+                <span>ID: Report Generation Date: {currentDate}</span> */}
               </div>
               <span className="text-[10px]">Page 08</span>
             </div>

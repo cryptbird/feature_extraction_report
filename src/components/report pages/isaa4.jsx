@@ -1,27 +1,33 @@
-import React, { useEffect,useContext,useState } from 'react';
-import Chart from 'chart.js/auto';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import React, { useEffect, useContext, useState } from "react";
+import Chart from "chart.js/auto";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import { AppContext } from "../../AppContext";
 
 const ISAA4 = () => {
   const { testData } = useContext(AppContext);
-      var [patientData, setPatientData] = useState({
-        socialResponsiveness: 0,
-        emotionalResponsiveness: 0,
-        speechRecognition: 0,
-        behaviouralPattern: 0,
-        sensoryAspects: 0,
-        cognitiveComponent: 0,
-      });
-    
+  var [patientData, setPatientData] = useState({
+    socialResponsiveness: 0,
+    emotionalResponsiveness: 0,
+    speechRecognition: 0,
+    behaviouralPattern: 0,
+    sensoryAspects: 0,
+    cognitiveComponent: 0,
+  });
+
   const ISAAQuestions = [
     // ["Has poor eye contact", "Lacks social smile", "Remains aloof", "Does not reach out to others", "Unable to relate to people", "Unable to respond to social/environmental cues", "Engages in solitary and repetitive play activities", "Unable to take turns in social interaction", "Does not maintain peer relationships"],
     // ["Inconsistent attention and concentration", "Shows delay in responding", "Has unusual memory of some kind", "Has 'savant' ability"],
     // ["Shows inappropriate emotional response", "Shows exaggerated emotions", "Engages in self-stimulating emotions", "Lacks fear of danger", "Excited or agitated for no apparent reason"],
     // ["Acquired speech and lost it", "Has difficulty in using non-verbal language or gestures to communicate", "Engages in stereotyped and repetitive use of language", "Engages in echolalic speech", "Produces infantile squeals/unusual noises", "Unable to initiate or sustain conversation with others", "Uses jargon or meaningless words", "Uses pronoun reversals", "Unable to grasp pragmatics of communication (real meaning)"],
     // ["Engages in stereotyped and repetitive motor mannerisms", "Shows attachment to inanimate objects", "Shows hyperactivity/restlessness", "Exhibits aggressive behavior", "Throws temper tantrums", "Engages in self-injurious behavior", "Insists on sameness"],
-    ["Unusually sensitive to sensory stimuli", "Stares into space for long periods of time", "Has difficulty in tracking objects", "Has unusual vision", "Insensitive to pain", "Responds to objects/people unusually by smelling, touching or tasting"],
-    
+    [
+      "Unusually sensitive to sensory stimuli",
+      "Stares into space for long periods of time",
+      "Has difficulty in tracking objects",
+      "Has unusual vision",
+      "Insensitive to pain",
+      "Responds to objects/people unusually by smelling, touching or tasting",
+    ],
   ];
 
   const domainNames = [
@@ -31,9 +37,7 @@ const ISAA4 = () => {
     // "Speech, Language, and Communication",
     // "Behavioral Patterns",
     "Sensory Aspects",
-    
   ];
-
 
   const formatToOneDecimal = (value) => parseFloat(value).toFixed(1);
   const currentDate = new Date().toLocaleDateString();
@@ -47,7 +51,7 @@ const ISAA4 = () => {
     );
     document.getElementById("isaaInterpretationmessage").innerText =
       patientData.isaaInterpretation;
-    
+
     createBarChart(patientData);
   };
 
@@ -58,9 +62,8 @@ const ISAA4 = () => {
 
     // Destroy existing chart if it exists
     if (chartInstance) {
-      console.log("destroying chart instance: ",chartInstance);
+      console.log("destroying chart instance: ", chartInstance);
       chartInstance.destroy();
-      
     }
 
     // Create new chart instance
@@ -135,7 +138,7 @@ const ISAA4 = () => {
     let sum = 0;
     let jj = 1;
     const newResponses = {};
-  
+
     for (let i = x; i < y; i++) {
       let value = parseInt(data[i], 10); // Convert string to number
       // console.log("value at index ", i, " = ", value, " with jj= ", jj, " and z= ", z);
@@ -145,16 +148,15 @@ const ISAA4 = () => {
         sum += value;
       }
     }
-  
+
     setResponses((prevResponses) => ({
       ...prevResponses,
       ...newResponses,
     }));
-  
+
     return sum;
   };
- 
-  
+
   useEffect(() => {
     // displayData();
     console.log("current debugging", testData);
@@ -163,7 +165,7 @@ const ISAA4 = () => {
       testData.psychologistformtestsData != undefined &&
       testData.featureExtractionTestData != undefined
     ) {
-    const isaa_social_responsiveness =
+      const isaa_social_responsiveness =
         (calculateSum(
           testData.psychologistformtestsData["isaaFormData"],
           0,
@@ -182,7 +184,7 @@ const ISAA4 = () => {
         ) /
           25) *
         100;
-      
+
       const isaa_speech_recognition =
         (calculateSum(
           testData.psychologistformtestsData["isaaFormData"],
@@ -219,14 +221,15 @@ const ISAA4 = () => {
         ) /
           20) *
         100;
-       
-      const isaascore= parseFloat(testData.psychologistformtestsData["isaascore"]) || 0;
+
+      const isaascore =
+        parseFloat(testData.psychologistformtestsData["isaascore"]) || 0;
 
       console.log("NEW DEBUGGIN", isaa_social_responsiveness);
       console.log("NEW DEBUGGIN", isaa_emotional_responsiveness);
-      console.log("isaa responses",responses);
-      console.log(responses[`isaa_1.2`])
-      
+      console.log("isaa responses", responses);
+      console.log(responses[`isaa_1.2`]);
+
       const isaasInterpretation =
         isaascore === "" || isNaN(isaascore)
           ? ""
@@ -246,12 +249,12 @@ const ISAA4 = () => {
         behaviouralPattern: parseFloat(isaa_behavioural_pattern) || 0,
         sensoryAspects: parseFloat(isaa_sensory_aspects) || 0,
         cognitiveComponent: parseFloat(isaa_cognitive_component) || 0,
-        TOT_ISAA: parseFloat(testData.psychologistformtestsData["isaascore"]) || 0,
-        isaaInterpretation:isaasInterpretation,
+        TOT_ISAA:
+          parseFloat(testData.psychologistformtestsData["isaascore"]) || 0,
+        isaaInterpretation: isaasInterpretation,
         // name: getURLParameter("Name") || "N/A",
       });
     }
-    
   }, [testData]);
   return (
     <>
@@ -279,17 +282,20 @@ const ISAA4 = () => {
           margin-bottom: 10px;
         }
       `}</style>
- <div className="pdf-image flex flex-col font-manrope items-center p-8 bg-white min-h-screen" >
- <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm]">
-             <div>
-                    <h1 className='text-left text-sm'>Indian Scale for Assessment of Autism Report</h1>
-                    <div className="w-full border-t-2 mt-2 border-[#9C00AD]"></div>
-                </div>
+      <div className="pdf-image flex flex-col font-manrope items-center p-8 bg-white min-h-screen">
+        <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm]">
+          <div>
+            <h1 className="text-left text-sm">
+              Indian Scale for Assessment of Autism Report
+            </h1>
+            <div className="w-full border-t-2 mt-2 border-[#9C00AD]"></div>
+          </div>
 
-      <div className="container" style={{width: "100%",
-          maxWidth: "800px",
-          margin: "auto"}}>
-        {/* <h1 style={{paddingBottom: "15px",
+          <div
+            className="container"
+            style={{ width: "100%", maxWidth: "800px", margin: "auto" }}
+          >
+            {/* <h1 style={{paddingBottom: "15px",
             marginLeft:"-23vw",
             fontFamily: '"Times New Roman", Times, serif',
             fontWeight: "600",
@@ -323,73 +329,208 @@ const ISAA4 = () => {
 
         <br /><br /><br /><br />
          */}
-         <br /><br />
-        {domainNames.map((domain, index) => (
-          <div key={index}>
-            <h2 className="section-title">{domain}</h2>
+            <br />
+            <br />
+            {domainNames.map((domain, index) => (
+              <div key={index}>
+                <h2 className="section-title">{domain}</h2>
+                <center>
+                  <table border="1" width="80%">
+                    <thead>
+                      <tr>
+                        <th
+                          style={{
+                            border: "1px solid #d1d5db",
+                            borderLeft: "0px",
+                            padding: "8px",
+                          }}
+                        >
+                          Question
+                        </th>
+                        <th
+                          style={{
+                            border: "1px solid #d1d5db",
+                            borderLeft: "0px",
+                            borderRight: "0px",
+                            padding: "8px",
+                          }}
+                        >
+                          Response
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ISAAQuestions[index].map((question, qIndex) => (
+                        <tr key={qIndex}>
+                          <td
+                            style={{
+                              border: "1px solid #d1d5db",
+                              borderLeft: "0px",
+                              padding: "8px",
+                            }}
+                          >
+                            {question}
+                          </td>
+                          <td
+                            style={{
+                              border: "1px solid #d1d5db",
+                              borderLeft: "0px",
+                              borderRight: "0px",
+                              padding: "8px",
+                            }}
+                          >
+                            {responses[`isaa_${index + 1}.${qIndex + 1}`] ||
+                              "N/A"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <br />
+                  <br />
+                </center>
+              </div>
+            ))}
             <center>
-            <table border="1" width="80%">
-              <thead>
+              <table
+                border="4"
+                style={{
+                  width: "50%",
+                  textAlign: "center",
+                  marginTop: "10px",
+                  border: "1px solid #d1d5db",
+                  padding: "8px",
+                }}
+              >
                 <tr>
-                  <th style={{ border: "1px solid #d1d5db", borderLeft:"0px" , padding: "8px" }}>Question</th>
-                  <th style={{ border: "1px solid #d1d5db", borderLeft:"0px" , borderRight:"0px" , padding: "8px" }}>Response</th>
+                  <th
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderLeft: "0px",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Score Range
+                  </th>
+                  <th
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Classification
+                  </th>
                 </tr>
-              </thead>
-              <tbody> 
-                {ISAAQuestions[index].map((question, qIndex) => (
-                  <tr key={qIndex}>
-                    <td style={{ border: "1px solid #d1d5db", borderLeft:"0px" ,  padding: "8px" }}>{question}</td>
-                    <td style={{ border: "1px solid #d1d5db", borderLeft:"0px" , borderRight:"0px" , padding: "8px" }}>{responses[`isaa_${index+1}.${qIndex+1}`] || "N/A"}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <br /><br />
+                <tr>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderLeft: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    &lt; 70
+                  </td>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Normal
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderLeft: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    70 - 105
+                  </td>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Mild Autism
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderLeft: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    106 - 153
+                  </td>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Moderate Autism
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderLeft: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    &gt; 153
+                  </td>
+                  <td
+                    style={{
+                      border: "1px solid #d1d5db",
+                      borderRight: "0px",
+                      padding: "8px",
+                    }}
+                  >
+                    Severe Autism
+                  </td>
+                </tr>
+              </table>
             </center>
-            
-          </div>
-        )
-        )}
-        <center>
-        <table border="4" style={{width: "50%", textAlign: "center", marginTop: "10px", border: "1px solid #d1d5db" , padding: "8px" }}>
-                    <tr >
-                        <th style={{ border: "1px solid #d1d5db", borderLeft:"0px", borderRight:"0px" ,  padding: "8px" }}>Score Range</th>
-                        <th style={{ border: "1px solid #d1d5db", borderRight:"0px" ,  padding: "8px" }}>Classification</th>
-                    </tr>
-                    <tr>
-                        <td style={{ border: "1px solid #d1d5db", borderLeft:"0px",  padding: "8px" }}>&lt; 70</td>
-                        <td style={{ border: "1px solid #d1d5db", borderRight:"0px" ,  padding: "8px" }}>Normal</td>
-                    </tr>
-                    <tr>
-                        <td style={{ border: "1px solid #d1d5db", borderLeft:"0px",   padding: "8px" }}>70 - 105</td>
-                        <td style={{ border: "1px solid #d1d5db",borderRight:"0px" ,  padding: "8px" }}>Mild Autism</td>
-                    </tr>
-                    <tr>
-                        <td style={{ border: "1px solid #d1d5db", borderLeft:"0px",   padding: "8px" }}>106 - 153</td>
-                        <td style={{ border: "1px solid #d1d5db", borderRight:"0px" ,  padding: "8px" }}>Moderate Autism</td>
-                    </tr>
-                    <tr>
-                        <td style={{ border: "1px solid #d1d5db", borderLeft:"0px",  padding: "8px" }}>&gt; 153</td>
-                        <td style={{ border: "1px solid #d1d5db", borderRight:"0px" ,  padding: "8px" }}>Severe Autism</td>
-                    </tr>
-                </table> 
-        </center> 
-        <br /><br />
-        <h2 style={{textAlign:"left"}}>ISAA Score: <span id="isaascore">{patientData.TOT_ISAA} </span></h2>
-        <p style={{textAlign:"left"}}>Interpretation: <span id="isaaInterpretationmessage">{patientData.isaaInterpretation}</span></p>
+            <br />
+            <br />
+            <h2 style={{ textAlign: "left" }}>
+              ISAA Score: <span id="isaascore">{patientData.TOT_ISAA} </span>
+            </h2>
+            <p style={{ textAlign: "left" }}>
+              Interpretation:{" "}
+              <span id="isaaInterpretationmessage">
+                {patientData.isaaInterpretation}
+              </span>
+            </p>
 
-        {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
-         <div className="w-full flex justify-between items-center text-xs font-manrope mt-60 border-t-2 border-[#800080] pt-2">
-                    <span className='text-[10px]'>ISAA Report - {patientData.name}</span>
-                    <div className="text-center text-[10px]">
-                        <span></span>
-                        <br />
-                        <span>ID: Report Generation Date: {currentDate}</span>
-                    </div>
-                    <span className='text-[10px]'>Page 11</span>
+            {/* <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> */}
+            <div className="w-full flex justify-between items-center text-xs font-manrope mt-60 border-t-2 border-[#800080] pt-2">
+              <span className="text-[10px]">
+                ISAA Report - {patientData.name}
+              </span>
+              <div className="text-center text-[10px]">
+                {/* <span></span>
+                <br />
+                <span>ID: Report Generation Date: {currentDate}</span> */}
+              </div>
+              <span className="text-[10px]">Page 11</span>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
       </div>
     </>
   );

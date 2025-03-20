@@ -115,9 +115,9 @@ const Page2 = () => {
                     <div className="w-full bottom-0 left-0 flex justify-between items-center text-xs font-manrope mt-10 border-t-2 border-[#800080] pt-2">
                         <span className='text-[10px]'>Sample</span>
                         <div className="text-center text-[10px]">
-                            <span>Received Date: 2023-07-28 17:22:09</span>
+                            {/* <span>Received Date: 2023-07-28 17:22:09</span>
                             <br />
-                            <span>ID: Report Generation Date:</span>
+                            <span>ID: Report Generation Date:</span> */}
                         </div>
                         <span className='text-[10px]'>Page 07</span>
                     </div>
