@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import img1 from "../../assets/report/img1.png";
 import img2 from "../../assets/report/img2.png";
 import img3 from "../../assets/report/img3.png";
 import "./pdf.css";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { AppContext } from "../../AppContext";
-
 
 // Data{
 //     {
@@ -202,126 +201,161 @@ import { AppContext } from "../../AppContext";
 //     }
 // }
 
-const   Page1 = () => {
-    // const getURLParameter = (name) => {
-    //           const urlParams = new URLSearchParams(window.location.search);
-    //           return urlParams.get(name);
-    //         };
-          const { testData } = useContext(AppContext);
-    //   console.log(testData);
-    //   console.log(testData.patienDOB);
-     const location = useLocation();
-        const getQueryParams = (search) => {
-          const params = new URLSearchParams(search);
-          return {
-            dob: params.get("patientDOB"),
-            name: params.get("name"),
-            timestamp:params.get("timestamp")
-          };
-        };
-      
-        const {dob, name, timestamp } = getQueryParams(location.search);
-        const birthDate = new Date(dob);
-        const today = new Date();
-        // console.log(dob);
-        let agep = today.getFullYear() - birthDate.getFullYear();
-    const progressData = [
-        { label: 'Social Preference', value: testData.social_preference },
-        { label: 'Eye Contact', value: 100-testData.eye_contact_error },
-        { label: 'Joint Attention', value: 100-testData.joint_attention_error },
-        { label: 'Gaze Hold', value: testData.gaze_holds },
-        { label: 'Gaze Speed', value: testData.gaze_speed },
-        { label: 'Attention Shift Frequency', value: testData.saccades },
-        { label: 'Gaze Dispersion', value: testData.gaze_dispersion },
-        { label: 'Focal Points', value: testData.focal_IOU },
-        { label: 'Screen Focus', value: testData.screen_focus },
-        { label: 'Object Tracking', value: 100-testData.object_tracking_error },
-    ];
+const Page1 = () => {
+  // const getURLParameter = (name) => {
+  //           const urlParams = new URLSearchParams(window.location.search);
+  //           return urlParams.get(name);
+  //         };
+  const { testData } = useContext(AppContext);
+  //   console.log(testData);
+  //   console.log(testData.patienDOB);
+  const location = useLocation();
+  const getQueryParams = (search) => {
+    const params = new URLSearchParams(search);
+    return {
+      dob: params.get("patientDOB"),
+      name: params.get("name"),
+      timestamp: params.get("timestamp"),
+    };
+  };
 
-    const progressData2 = [
-        // { label: 'Social Preference', value: 85 },
-        { label: 'Head Control', value: 78 },
-        // { label: 'Eye Contact', value: 75 },
-        // { label: 'Joint Attention', value: 80 },
-    ];
-    const averageValue = (Number(testData.social_preference) +100-Number(testData.eye_contact_error) + 100-Number(testData.joint_attention_error) + Number(testData.gaze_holds)  +Number(testData.gaze_speed)+ Number(testData.saccades) + Number(testData.gaze_dispersion) + Number(testData.focal_IOU)+  Number(testData.screen_focus)+  100-Number(testData.object_tracking_error) )/10;
-    // console.log(testData);
-    return (
-        <div className="pdf-image flex flex-col font-manrope items-center p-8 bg-white min-h-screen" >
-            <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm]">
-                <div>
-                    <h1 className='text-left text-sm'>Detailed Featured report</h1>
-                    <div className="w-full border-t-2 mt-2 border-[#9C00AD]"></div>
-                </div>
+  const { dob, name, timestamp } = getQueryParams(location.search);
+  const birthDate = new Date(dob);
+  const today = new Date();
+  // console.log(dob);
+  let agep = today.getFullYear() - birthDate.getFullYear();
+  const progressData = [
+    { label: "Social Preference", value: testData.social_preference },
+    { label: "Eye Contact", value: 100 - testData.eye_contact_error },
+    { label: "Joint Attention", value: 100 - testData.joint_attention_error },
+    { label: "Gaze Hold", value: testData.gaze_holds },
+    { label: "Gaze Speed", value: testData.gaze_speed },
+    { label: "Attention Shift Frequency", value: testData.saccades },
+    { label: "Gaze Dispersion", value: testData.gaze_dispersion },
+    { label: "Focal Points", value: testData.focal_IOU },
+    { label: "Screen Focus", value: testData.screen_focus },
+    { label: "Object Tracking", value: 100 - testData.object_tracking_error },
+  ];
 
-                <div className="w-full items-center justify-start  flex mt-4">
-                    <div className="w-[25%]">
-                        <img src={img1} alt="Patient Image" />
-                    </div>
-                    <div className="font-manrope text-xs text-left ml-5">
-                        <h3>Patient Details:</h3>
-                        <h3>Name: {name}</h3>
-                        {/* <h3>Age: {agep}</h3> */}
-                        <h3>Date of Birth: {dob}</h3>
-                        {/* <h3>Gender : Female</h3> */}
-                    </div>
-                </div>
+  const progressData2 = [
+    // { label: 'Social Preference', value: 85 },
+    { label: "Head Control", value: 78 },
+    // { label: 'Eye Contact', value: 75 },
+    // { label: 'Joint Attention', value: 80 },
+  ];
+  const averageValue = Math.round(
+    (Number(testData.social_preference) +
+      100 -
+      Number(testData.eye_contact_error) +
+      100 -
+      Number(testData.joint_attention_error) +
+      Number(testData.gaze_holds) +
+      Number(testData.gaze_speed) +
+      Number(testData.saccades) +
+      Number(testData.gaze_dispersion) +
+      Number(testData.focal_IOU) +
+      Number(testData.screen_focus) +
+      100 -
+      Number(testData.object_tracking_error)) /
+      10
+  );
 
-                <h3 className='text-center font-manrope mt-4 font-semibold text-lg'>Developmental Skills Summary</h3>
-
-                <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
-                    <div className="w-[45%] justify-center font-manrope mt-2 font-semibold items-center flex">
-                        <div className="w-[10vw] flex flex-col justify-center items-center">
-                            <img src={img2} alt="Visual Interest" />
-                            <div className="w-[12vw] p-4 h-[12vw] bg-[#BD35E5] flex flex-col items-center justify-center rounded-3xl text-white">
-                                <h4 className='text-center'> Visual Interest Response</h4>
-                                <h4>{averageValue}%</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex w-[50%] flex-col">
-                    {progressData.map((item, index) => (
-                        <div key={index} className="flex flex-col w-full">
-                            {/* Label Row */}
-                            <div className="flex">
-                            <h4 className="text-xs text-black ml-3 mb-2 relative">{item.label}</h4>
-                            </div>
-
-                            {/* Progress Bar Row */}
-                            <div className="w-full h-[4vh] bg-[#e5e7eb] rounded-full mb-2">
-                            <div
-className={`h-full rounded-full flex justify-between items-center p-1 ${
-    item.value >= 60 ? 'bg-green-500' : item.value >= 40 ? 'bg-yellow-500' : 'bg-red-500'
-  }`}
-                                  style={{ width: `${item.value < 20 ? item.value + 5 : item.value}%` }}
-                            >
-                                <div></div>
-                                <div className="w-7 h-7 bg-white rounded-full flex justify-center items-center" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                                <h5 className="text-[10px] text-[#000] font-raleway mb-1">
-                                    {item.value}%
-                                </h5>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        ))}
-
-                    </div>
-                </div>
-<br /><br />
-
-                <div className="w-full flex justify-between items-center text-xs font-manrope mt-0 border-t-2 border-[#800080] pt-0">
-                    <span className='text-[10px]'>{name}</span>
-                    <div className="text-center text-[10px]">
-                        <span>Received Date: {timestamp}</span>
-                        <br />
-                        <span>ID: Report Generation Date:</span>
-                    </div>
-                    <span className='text-[10px]'>Page 06</span>
-                </div>
-            </div>
+  // console.log(testData);
+  return (
+    <div className="pdf-image flex flex-col font-manrope items-center p-8 bg-white min-h-screen">
+      <div className="pdf-page bg-white p-8 shadow-md rounded-md w-[210mm] h-[297mm]">
+        <div>
+          <h1 className="text-left text-sm">Detailed Featured report</h1>
+          <div className="w-full border-t-2 mt-2 border-[#9C00AD]"></div>
         </div>
-    )
-}
+
+        <div className="w-full items-center justify-start  flex mt-4">
+          <div className="w-[25%]">
+            <img src={img1} alt="Patient Image" />
+          </div>
+          <div className="font-manrope text-xs text-left ml-5">
+            <h3>Patient Details:</h3>
+            <h3>Name: {name}</h3>
+            {/* <h3>Age: {agep}</h3> */}
+            <h3>Date of Birth: {dob}</h3>
+            {/* <h3>Gender : Female</h3> */}
+          </div>
+        </div>
+
+        <h3 className="text-center font-manrope mt-4 font-semibold text-lg">
+          Developmental Skills Summary
+        </h3>
+
+        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
+          <div className="w-[45%] justify-center font-manrope mt-2 font-semibold items-center flex">
+            <div className="w-[10vw] flex flex-col justify-center items-center">
+              <img src={img2} alt="Visual Interest" />
+              <div className="w-[12vw] p-4 h-[12vw] bg-[#BD35E5] flex flex-col items-center justify-center rounded-3xl text-white">
+                <h4 className="text-center"> Visual Interest Response</h4>
+                <h4>{averageValue}%</h4>
+              </div>
+            </div>
+          </div>
+          <div className="flex w-[50%] flex-col">
+            {progressData.map((item, index) => (
+              <div key={index} className="flex flex-col w-full">
+                {/* Label Row */}
+                <div className="flex">
+                  <h4 className="text-xs text-black ml-3 mb-2 relative">
+                    {item.label}
+                  </h4>
+                </div>
+
+                {/* Progress Bar Row */}
+                <div className="w-full h-[4vh] bg-[#e5e7eb] rounded-full mb-2">
+                  <div
+                    className={`h-full rounded-full flex justify-between items-center p-1 ${
+                      item.value >= 60
+                        ? "bg-green-500"
+                        : item.value >= 40
+                        ? "bg-yellow-500"
+                        : "bg-red-500"
+                    }`}
+                    style={{
+                      width: `${
+                        item.value < 20 ? item.value + 5 : item.value
+                      }%`,
+                    }}
+                  >
+                    <div></div>
+                    <div
+                      className="w-7 h-7 bg-white rounded-full flex justify-center items-center"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <h5 className="text-[10px] text-[#000] font-raleway mb-1">
+                        {item.value}%
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <br />
+        <br />
+
+        <div className="w-full flex justify-between items-center text-xs font-manrope mt-0 border-t-2 border-[#800080] pt-0">
+          <span className="text-[10px]">{name}</span>
+          <div className="text-center text-[10px]">
+            <span>Received Date: {timestamp}</span>
+            <br />
+            <span>ID: Report Generation Date:</span>
+          </div>
+          <span className="text-[10px]">Page 06</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Page1;
