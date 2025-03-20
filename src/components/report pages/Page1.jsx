@@ -226,15 +226,15 @@ const Page1 = () => {
   let agep = today.getFullYear() - birthDate.getFullYear();
   const progressData = [
     { label: "Social Preference", value: testData.social_preference },
-    { label: "Eye Contact", value: 100 - testData.eye_contact_error },
-    { label: "Joint Attention", value: 100 - testData.joint_attention_error },
+    // { label: "Eye Contact", value: testData.eye_contact_error },
+    { label: "Joint Attention", value: testData.joint_attention_error },
     { label: "Gaze Hold", value: testData.gaze_holds },
     { label: "Gaze Speed", value: testData.gaze_speed },
     { label: "Attention Shift Frequency", value: testData.saccades },
     { label: "Gaze Dispersion", value: testData.gaze_dispersion },
     { label: "Focal Points", value: testData.focal_IOU },
     { label: "Screen Focus", value: testData.screen_focus },
-    { label: "Object Tracking", value: 100 - testData.object_tracking_error },
+    { label: "Object Tracking", value: testData.object_tracking_error },
   ];
 
   const progressData2 = [
@@ -245,9 +245,7 @@ const Page1 = () => {
   ];
   const averageValue = Math.round(
     (Number(testData.social_preference) +
-      100 -
       Number(testData.eye_contact_error) +
-      100 -
       Number(testData.joint_attention_error) +
       Number(testData.gaze_holds) +
       Number(testData.gaze_speed) +
@@ -255,7 +253,6 @@ const Page1 = () => {
       Number(testData.gaze_dispersion) +
       Number(testData.focal_IOU) +
       Number(testData.screen_focus) +
-      100 -
       Number(testData.object_tracking_error)) /
       10
   );
