@@ -36,6 +36,7 @@ export const AppProvider = ({ children }) => {
     ai_report_available: "",
     psychologist_report_available: "",
     psychologistformtestsData: "",
+    autismProbability: "",
   });
 
   const getURLParameter = (name) => {
@@ -215,6 +216,7 @@ export const AppProvider = ({ children }) => {
         yaw: Math.round(data['Yaw']) || '',
         pitch: Math.round(data['Pitch']) || '',
         roll: Math.round(data['Roll']) || '',
+        autismProbability: data['autismProbability'] || ""
         
       });
       return data;

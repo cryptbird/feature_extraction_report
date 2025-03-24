@@ -202,6 +202,7 @@ import { AppContext } from "../../AppContext";
 // }
 
 const Page1 = () => {
+  const [ autismProbabilityText, setAutismProbabilityText] = useState('');
   // const getURLParameter = (name) => {
   //           const urlParams = new URLSearchParams(window.location.search);
   //           return urlParams.get(name);
@@ -236,6 +237,18 @@ const Page1 = () => {
     { label: "Screen Focus", value: testData.screen_focus },
     { label: "Object Tracking", value: testData.object_tracking_error },
   ];
+
+  function calculateAutismLine(){
+    if(testData.autismProbability >= 0.0 && testData.autismProbability < 0.2 ){
+      setAutismProbabilityText("Low likelihood of autism traits observed.");
+    }
+    else if(testData.autismProbability >= 0.2 && testData.autismProbability < 0.4){
+      setAutismProbabilityText("Minimal traits associated with autism detected.");
+    }
+    else if(testData.autismProbability >= 0.4 && testData.autismProbability <= 1.0){
+      setAutismProbabilityText("Moderate presence of traits related to autism.");
+    }
+  }
 
   const progressData2 = [
     // { label: 'Social Preference', value: 85 },
@@ -283,7 +296,7 @@ const Page1 = () => {
           Developmental Skills Summary
         </h3>
 
-        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
+        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex" style={{border: '1px solid red'}}>
           <div className="w-[45%] justify-center font-manrope mt-2 font-semibold items-center flex">
             <div className="w-[10vw] flex flex-col justify-center items-center">
               <img src={img2} alt="Visual Interest" />
@@ -337,6 +350,9 @@ const Page1 = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex" style={{border: '1px solid red'}}>
+          
         </div>
         <br />
         <br />
