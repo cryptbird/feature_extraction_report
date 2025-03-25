@@ -182,6 +182,8 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const replaceZeroWithTen = (value) => (value == 0 ? 10 : value);
+
   // Function to fetch test data
   const fetchTestData = async (patient_uid, transaction_id) => {
     // console.log("Fetching test data...");
@@ -198,26 +200,46 @@ export const AppProvider = ({ children }) => {
         // TODO: redirect to error page
       }
       console.log("Data= ",data);
-      setTestData({
-        PATIENT_UID: data.patient_id || '',
-        TRANSACTION_ID: data.transaction_id || '',
-        focal_IOU: Math.round(data['Focal Point IOU']) || '',
-        joint_attention_error: Math.round(data['Joint Attention Social']) || '',
-        eye_contact_error: Math.round(data['Eye Contact Error']) || '',
-        gaze_dispersion: Math.round(data['Gaze Dispersion']) || '',
-        gaze_speed: Math.round(data['Gaze Speed']) || '',
-        screen_focus: Math.round(data['Screen Focus']) || '',
-        object_tracking_error: Math.round(data['Object Tracking']) || '',
-        social_preference: Math.round(data['Social Preference']) || '',
-        gaze_holds: Math.round(data['Gaze Hold']) || '',
-        saccades: Math.round(data['Saccades']) || '',
-        lipsync_recog: Math.round(data['Lipsync']) || '',
-        convo_recog: Math.round(data['Conversation Recognition']) || '',
-        yaw: Math.round(data['Yaw']) || '',
-        pitch: Math.round(data['Pitch']) || '',
-        roll: Math.round(data['Roll']) || '',
-        autismProbability: data['autismProbability'] || ""
+      // setTestData({
+      //   PATIENT_UID: data.patient_id || '',
+      //   TRANSACTION_ID: data.transaction_id || '',
+      //   focal_IOU: Math.round(data['Focal Point IOU']) || '',
+      //   joint_attention_error: Math.round(data['Joint Attention Social']) || '',
+      //   eye_contact_error: Math.round(data['Eye Contact Error']) || '',
+      //   gaze_dispersion: Math.round(data['Gaze Dispersion']) || '',
+      //   gaze_speed: Math.round(data['Gaze Speed']) || '',
+      //   screen_focus: Math.round(data['Screen Focus']) || '',
+      //   object_tracking_error: Math.round(data['Object Tracking']) || '',
+      //   social_preference: Math.round(data['Social Preference']) || '',
+      //   gaze_holds: Math.round(data['Gaze Hold']) || '',
+      //   saccades: Math.round(data['Saccades']) || '',
+      //   lipsync_recog: Math.round(data['Lipsync']) || '',
+      //   convo_recog: Math.round(data['Conversation Recognition']) || '',
+      //   yaw: Math.round(data['Yaw']) || '',
+      //   pitch: Math.round(data['Pitch']) || '',
+      //   roll: Math.round(data['Roll']) || '',
+      //   autismProbability: data['autismProbability'] || ""
         
+      // });
+      setTestData({
+        PATIENT_UID: data.patient_id || "",
+        TRANSACTION_ID: data.transaction_id || "",
+        focal_IOU: replaceZeroWithTen(Math.round(data["Focal Point IOU"]) || ""),
+        joint_attention_error: replaceZeroWithTen(Math.round(data["Joint Attention Social"]) || ""),
+        eye_contact_error: replaceZeroWithTen(Math.round(data["Eye Contact Error"]) || ""),
+        gaze_dispersion: replaceZeroWithTen(Math.round(data["Gaze Dispersion"]) || ""),
+        gaze_speed: replaceZeroWithTen(Math.round(data["Gaze Speed"]) || ""),
+        screen_focus: replaceZeroWithTen(Math.round(data["Screen Focus"]) || ""),
+        object_tracking_error: replaceZeroWithTen(Math.round(data["Object Tracking"]) || ""),
+        social_preference: replaceZeroWithTen(Math.round(data["Social Preference"]) || ""),
+        gaze_holds: replaceZeroWithTen(Math.round(data["Gaze Hold"]) || ""),
+        saccades: replaceZeroWithTen(Math.round(data["Saccades"]) || ""),
+        lipsync_recog: replaceZeroWithTen(Math.round(data["Lipsync"]) || ""),
+        convo_recog: replaceZeroWithTen(Math.round(data["Conversation Recognition"]) || ""),
+        yaw: replaceZeroWithTen(Math.round(data["Yaw"]) || ""),
+        pitch: replaceZeroWithTen(Math.round(data["Pitch"]) || ""),
+        roll: replaceZeroWithTen(Math.round(data["Roll"]) || ""),
+        autismProbability: data["autismProbability"] || "",
       });
       return data;
     } catch (error) {

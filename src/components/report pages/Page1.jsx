@@ -208,7 +208,7 @@ const Page1 = () => {
   //           return urlParams.get(name);
   //         };
   const { testData } = useContext(AppContext);
-  //   console.log(testData);
+    console.log(JSON.stringify(testData) + 'at page 1');
   //   console.log(testData.patienDOB);
   const location = useLocation();
   const getQueryParams = (search) => {
