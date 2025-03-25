@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import img1 from "../../assets/report/img1.png";
 import img2 from "../../assets/report/img2.png";
 import img3 from "../../assets/report/img3.png";
@@ -296,7 +296,7 @@ const Page1 = () => {
           Developmental Skills Summary
         </h3>
 
-        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex" style={{border: '1px solid red'}}>
+        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
           <div className="w-[45%] justify-center font-manrope mt-2 font-semibold items-center flex">
             <div className="w-[10vw] flex flex-col justify-center items-center">
               <img src={img2} alt="Visual Interest" />
@@ -351,7 +351,7 @@ const Page1 = () => {
             ))}
           </div>
         </div>
-        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex" style={{border: '1px solid red'}}>
+        <div className="w-full justify-center font-manrope mt-8 font-semibold gap-5 px-5 items-center flex">
           
         </div>
         <br />
