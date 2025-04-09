@@ -5,11 +5,11 @@ import axios from "axios";
 export const AppContext = createContext();
 
 // API Endpoints
-const API_URL = "https://35.207.211.80/rest/feature_extraction_test_results/";
+const API_URL = "https://de.aignosismdw.in/rest/feature_extraction_test_results/";
 const AI_REPORT_URL =
-  "https://35.207.211.80/rest/get_ai_report_available_status/";
+  "https://de.aignosismdw.in/rest/get_ai_report_available_status/";
 const PSYCHOLOGIST_REPORT_URL =
-  "https://35.207.211.80/rest/get_psychologist_report_available_status/";
+  "https://de.aignosismdw.in/rest/get_psychologist_report_available_status/";
 
 // Create the provider component
 export const AppProvider = ({ children }) => {
@@ -134,7 +134,7 @@ export const AppProvider = ({ children }) => {
   const fetchPsychologistFormResults = async (patient_uid, transaction_id) => {
     try {
       const response = await axios.post(
-        "https://35.207.211.80/rest/get_psychologist_form_results/",
+        "https://de.aignosismdw.in/rest/get_psychologist_form_results/",
         {
           patient_uid,
           transaction_id,

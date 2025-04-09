@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { AppContext } from "../aignosisintegration/AppContext.jsx";
 
 const DogCalibration = () => {
-  const SERVER_MIDDLEWARE_URL = "https://35.207.211.80/rest/calibration/data/";
+  const SERVER_MIDDLEWARE_URL = "https://de.aignosismdw.in/rest/calibration/data/";
   // const SERVER_MIDDLEWARE_URL = 'http://127.0.0.1:8000/rest/calibration/data/';
 
   // const [TRANSACTION_ID, ] = useState(uuidv4());
