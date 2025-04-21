@@ -218,8 +218,8 @@ export const AppProvider = ({ children }) => {
         pitch: replaceZeroWithTen(Math.round(data["Pitch"]) || ""),
         roll: replaceZeroWithTen(Math.round(data["Roll"]) || ""),
         autismProbability: data["autismProbability"] || "",
-        TXGB_model_proba: data["TXGB_model_proba"] || "",
-        etsp_lstm_cnn_model_prediction: data["etsp_lstm_cnn_model_prediction"] || "",
+        TXGB_model_proba: data["TXGB_model_proba"] || undefined,
+        etsp_lstm_cnn_model_prediction: data["etsp_lstm_cnn_model_prediction"] || undefined,
       });
       return data;
     } catch (error) {

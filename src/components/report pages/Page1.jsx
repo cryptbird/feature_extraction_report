@@ -374,9 +374,9 @@ import { AppContext } from "../../AppContext";
 // export default Page1;
 
 const Page1 = () => {
-  // Score is removed from display but used for logic
-  const score = 32;
-  const isLowScore = score < 40;
+  
+  const lstm_cnn_model_threshold = 0.4;
+  const txgb_model_threshold = 0.5;
 
   const getURLParameter = (name) => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -384,12 +384,20 @@ const Page1 = () => {
   };
 
   function getAggregatedAutismScore(testData) {
-    
-    if (testData["TXGB_model_proba"] > 0.5 && testData["etsp_lstm_cnn_model_prediction"] > 0.5) {
-      return true;
+    if (
+      testData["TXGB_model_proba"] === undefined &&
+      testData["etsp_lstm_cnn_model_prediction"] === undefined
+    ) {
+      return -1;
     }
-    else {
-      return false;
+
+    if (
+      testData["TXGB_model_proba"] > txgb_model_threshold &&
+      testData["etsp_lstm_cnn_model_prediction"] > lstm_cnn_model_threshold
+    ) {
+      return 1;
+    } else {
+      return 0;
     }
   }
 
@@ -413,8 +421,8 @@ const Page1 = () => {
         <h1 style={styles.heading}>Developmental Screening Results</h1>
 
         <div style={styles.textContainer}>
-          <div style={styles.resultBox}>
-            {getAggregatedAutismScore(testData) != true ? (
+          {/* <div style={styles.resultBox}>
+            {getAggregatedAutismScore(testData) == 0 ? (
               <p style={styles.resultText}>
                 Your child does <span style={styles.highlight}>not</span> show{" "}
                 <span style={styles.highlight}>autistic traits</span> based on
@@ -426,6 +434,30 @@ const Page1 = () => {
                 Your child <span style={styles.highlight}>shows</span>{" "}
                 <span style={styles.highlight}>autistic traits</span> based on
                 this screening.
+              </p>
+            )}
+          </div> */}
+
+          <div style={styles.resultBox}>
+            {getAggregatedAutismScore(testData) === 0 ? (
+              <p style={styles.resultText}>
+                Your child does <span style={styles.highlight}>not</span> show{" "}
+                <span style={styles.highlight}>autistic traits</span> based on
+                this screening.
+              </p>
+            ) : getAggregatedAutismScore(testData) === 1 ? (
+              <p style={styles.resultText}>
+                Your child <span style={styles.highlight}>shows</span>{" "}
+                <span style={styles.highlight}>autistic traits</span> based on
+                this screening.
+              </p>
+            ) : (
+              <p style={styles.resultText}>
+                Unfortunately, we do{" "}
+                <span style={styles.highlight}>
+                  not have enough information
+                </span>{" "}
+                to determine whether your child shows autistic traits.
               </p>
             )}
           </div>
