@@ -374,7 +374,6 @@ import { AppContext } from "../../AppContext";
 // export default Page1;
 
 const Page1 = () => {
-  
   const lstm_cnn_model_threshold = 0.4;
   const txgb_model_threshold = 0.5;
 
@@ -421,23 +420,6 @@ const Page1 = () => {
         <h1 style={styles.heading}>Developmental Screening Results</h1>
 
         <div style={styles.textContainer}>
-          {/* <div style={styles.resultBox}>
-            {getAggregatedAutismScore(testData) == 0 ? (
-              <p style={styles.resultText}>
-                Your child does <span style={styles.highlight}>not</span> show{" "}
-                <span style={styles.highlight}>autistic traits</span> based on
-                this screening.
-              </p>
-            ) : (
-              // When child shows autistic traits, "shows" will be highlighted in purple
-              <p style={styles.resultText}>
-                Your child <span style={styles.highlight}>shows</span>{" "}
-                <span style={styles.highlight}>autistic traits</span> based on
-                this screening.
-              </p>
-            )}
-          </div> */}
-
           <div style={styles.resultBox}>
             {getAggregatedAutismScore(testData) === 0 ? (
               <p style={styles.resultText}>
