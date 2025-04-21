@@ -199,28 +199,6 @@ export const AppProvider = ({ children }) => {
         console.log("Failed to fetch ai test data");
         // TODO: redirect to error page
       }
-      console.log("Data= ",data);
-      // setTestData({
-      //   PATIENT_UID: data.patient_id || '',
-      //   TRANSACTION_ID: data.transaction_id || '',
-      //   focal_IOU: Math.round(data['Focal Point IOU']) || '',
-      //   joint_attention_error: Math.round(data['Joint Attention Social']) || '',
-      //   eye_contact_error: Math.round(data['Eye Contact Error']) || '',
-      //   gaze_dispersion: Math.round(data['Gaze Dispersion']) || '',
-      //   gaze_speed: Math.round(data['Gaze Speed']) || '',
-      //   screen_focus: Math.round(data['Screen Focus']) || '',
-      //   object_tracking_error: Math.round(data['Object Tracking']) || '',
-      //   social_preference: Math.round(data['Social Preference']) || '',
-      //   gaze_holds: Math.round(data['Gaze Hold']) || '',
-      //   saccades: Math.round(data['Saccades']) || '',
-      //   lipsync_recog: Math.round(data['Lipsync']) || '',
-      //   convo_recog: Math.round(data['Conversation Recognition']) || '',
-      //   yaw: Math.round(data['Yaw']) || '',
-      //   pitch: Math.round(data['Pitch']) || '',
-      //   roll: Math.round(data['Roll']) || '',
-      //   autismProbability: data['autismProbability'] || ""
-        
-      // });
       setTestData({
         PATIENT_UID: data.patient_id || "",
         TRANSACTION_ID: data.transaction_id || "",
@@ -240,6 +218,8 @@ export const AppProvider = ({ children }) => {
         pitch: replaceZeroWithTen(Math.round(data["Pitch"]) || ""),
         roll: replaceZeroWithTen(Math.round(data["Roll"]) || ""),
         autismProbability: data["autismProbability"] || "",
+        TXGB_model_proba: data["TXGB_model_proba"] || "",
+        etsp_lstm_cnn_model_prediction: data["etsp_lstm_cnn_model_prediction"] || "",
       });
       return data;
     } catch (error) {
