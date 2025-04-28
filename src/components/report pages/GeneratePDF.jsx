@@ -9,31 +9,31 @@ import { AppContext } from "../../AppContext";
 const pdfData = [
   {
     url:
-      "https://prod-aignosis-terraform-state.s3.ap-south-1.amazonaws.com/1738767409455_page1.png",
+      "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.1.png",
     alttext: "report first page",
   },
   {
-    url: "https://i.ibb.co/ch8CB38Q/Aignosis-Sample-Report-page-0002.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.2.png",
     alttext: "report second page",
   },
   {
-    url: "https://i.ibb.co/7tzZXn7h/Aignosis-Sample-Report-page-0003.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.3.png",
     alttext: "report third page",
   },
   {
-    url: "https://i.ibb.co/35CXNPgw/Aignosis-Sample-Report-page-0004.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.4.png",
     alttext: "report four page",
   },
   {
-    url: "https://i.ibb.co/Pv6hF2zL/Aignosis-Sample-Report-page-0005.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.5.png",
     alttext: "report fifth page",
   },
   {
-    url: "https://i.ibb.co/5hPKgM91/Aignosis-Sample-Report-page-0006.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.6.png",
     alttext: "report six page",
   },
   {
-    url: "https://i.ibb.co/1YP9HxPW/Aignosis-Sample-Report-page-0007.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.7-ai-report.png",
     alttext: "report seven page",
   },
 ];
@@ -48,35 +48,35 @@ const SecondpdfData = [
   //     alttext:'report nine page',
   // },
   {
-    url: "https://i.ibb.co/HDcb3xdY/Aignosis-Sample-Report-page-0015.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.1.png",
     alttext: "report ten page",
   },
   {
-    url: "https://i.ibb.co/cSKPtpmb/Aignosis-Sample-Report-page-0016.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.2.png",
     alttext: "report eleven page",
   },
   {
-    url: "https://i.ibb.co/gNQDftQ/Aignosis-Sample-Report-page-0017.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.3.jpg",
     alttext: "report tweleve page",
   },
   {
-    url: "https://i.ibb.co/zV7jBZmX/Aignosis-Sample-Report-page-0018.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.4.png",
     alttext: "report thireteen page",
   },
   {
-    url: "https://i.ibb.co/rKDmbkBt/Aignosis-Sample-Report-page-0019.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.5.png",
     alttext: "report  page 14",
   },
   {
-    url: "https://i.ibb.co/8nkPd4T9/Aignosis-Sample-Report-page-0020.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.6.png",
     alttext: "report page 15",
   },
   {
-    url: "https://i.ibb.co/kssPTvqD/Aignosis-Sample-Report-page-0021.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.7.png",
     alttext: "report page 16",
   },
   {
-    url: "https://i.ibb.co/dJkxnjFV/Aignosis-Sample-Report-page-0022.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Aignosis-Sample-Report-page-0022.jpg",
     alttext: "report page 17",
   },
 ];
