@@ -409,7 +409,7 @@ const Page1 = () => {
   }, [patient_uid, transaction_id]);
 
   return (
-    <div style={styles.container}>
+    <div className="pdf-page" style={styles.container}>
       {/* Top right decorative element - now matching bottom left with circles */}
       <div style={styles.topRightDecoration}>
         <div style={styles.topCircleOne}></div>

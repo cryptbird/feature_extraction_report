@@ -20,7 +20,7 @@ const Page2 = () => {
         { label: 'Emotion Mirroring Score', value: 78 },
     ];
     return (
-        <div className=" pdf-imageflex flex-col font-manrope items-center p-8 bg-white  min-h-screen">
+        <div className=" pdf-image flex flex-col font-manrope items-center p-8 bg-white  min-h-screen">
             <div className="pdf-page bg-white p-8  rounded-md w-[210mm] m-auto h-[297mm] relative">
                 <div className="absolute p-8 top-0 left-0 w-full">
                     <h1 className='text-left text-sm'>Detailed Featured report</h1>
