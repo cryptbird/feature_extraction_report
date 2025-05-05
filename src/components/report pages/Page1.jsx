@@ -402,10 +402,16 @@ const Page1 = () => {
 
   const patient_uid = getURLParameter("PATIENT_UID") || "N/A";
   const transaction_id = getURLParameter("TRANSACTION_ID") || "N/A";
+  const name = getURLParameter("name") || "N/A";
+  const dob = getURLParameter("patientDOB") || "N/A";
   const { testData, fetchTestData } = useContext(AppContext);
+
+  // add slashes to dob in year month date formate
+  const formattedDob = dob.replace(/(\d{4})(\d{2})(\d{2})/, "$1/$2/$3");
 
   useEffect(() => {
     fetchTestData(patient_uid, transaction_id);
+    console.log('my debug log', testData)
   }, [patient_uid, transaction_id]);
 
   return (
@@ -418,6 +424,11 @@ const Page1 = () => {
 
       <div style={styles.contentWrapper}>
         <h1 style={styles.heading}>Developmental Screening Results</h1>
+
+        <div style={styles.patientDetailsBox}>
+          <p style={styles.resultText}>Name: {name}<br/>
+          Date of Birth: {formattedDob}<br/></p>
+        </div>
 
         <div style={styles.textContainer}>
           <div style={styles.resultBox}>
@@ -602,6 +613,13 @@ const styles = {
     borderRadius: "50%",
     border: "5px solid #c27fe0",
   },
+  patientDetailsBox: {
+    background: "#f9f4ff",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    padding: "20px",
+    border: "1px solid #8e44ad",
+  }
 };
 
 export default Page1;
