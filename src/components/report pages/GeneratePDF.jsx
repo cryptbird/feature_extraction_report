@@ -33,7 +33,7 @@ const pdfData = [
     alttext: "report six page",
   },
   {
-    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.7-ai-report.png",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page1.7-aireport.png",
     alttext: "report seven page",
   },
 ];
