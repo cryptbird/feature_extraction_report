@@ -76,7 +76,7 @@ const SecondpdfData = [
     alttext: "report page 16",
   },
   {
-    url: "https://storage.googleapis.com/aignosis_static_assets/Aignosis-Sample-Report-page-0022.jpg",
+    url: "https://storage.googleapis.com/aignosis_static_assets/Screening-Report/page2.8.png",
     alttext: "report page 17",
   },
 ];
